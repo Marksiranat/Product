@@ -70,7 +70,7 @@ router.post("/register", async function (req, res) {
 
     await user.save(); // บันทึกลงฐานข้อมูล
 
-    return res.status(200).send({status:200, message: "success",data:user });
+    return res.status(201).send({status:201, message: "success",data:user });
   } catch (err) {
     console.error(err);
     return res.status(500).send({status:500, message: "เกิดข้อผิดพลาดในระบบ",data:null });
@@ -89,7 +89,7 @@ router.put("/users/:id/approve", async function (req, res, next) {
       return res.status(400).send({ status:400, message: "User not found", data:null });
     }
 
-    res.send({status:200, message: "success", data:user});
+    res.status(200).send({status:200, message: "success", data:user});
   } catch (error) {
     console.error(error);
     res.status(500).send({status:500, message: "error", data:null});

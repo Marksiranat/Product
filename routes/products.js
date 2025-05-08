@@ -43,8 +43,8 @@ router.post("/",tokenMiddleware,approveMiddleware, async (req, res) => {
 
     const savedProduct = await newProduct.save();
 
-    res.status(200).send({
-      status: 200,
+    res.status(201).send({
+      status: 201,
       message: "success",
       data: savedProduct,
     });
@@ -152,8 +152,8 @@ router.post("/:id/orders",tokenMiddleware,approveMiddleware,async (req, res) => 
         $addToSet: { orderIds: newOrder._id }  
       });
   
-      res.status(200).send({
-        status: 200,
+      res.status(201).send({
+        status: 201,
         message: "success",
         data: {
           nameproduct: product.nameproduct,
